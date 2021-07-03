@@ -1,0 +1,40 @@
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[user]
+	name = xinyu.zhang
+	email = xinyu.zhang@cityio.cn
+[core]
+	excludesfile = /Users/zhangxinyu/.gitignore_global
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[commit]
+	template = /Users/zhangxinyu/.stCommitMsg
+[gitreview]
+	remote = origin
+	username = xinyu.zhang
+[color]
+	ui = auto
+[alias]
+    a = add
+    ca = commit --amend
+    cho = checkout
+    c = commit
+    cm = commit -m
+    p = pull
+    pr = pull --rebase
+    l = log
+    rbi = rebase -i
+    rbc = rebase --continue
+    ss = stash save
+    sp = stash pop
+    sa = stash apply
+    sl = stash list
+    l1 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
+    l2 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
